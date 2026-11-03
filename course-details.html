@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Details | EduSphere</title>
+  <meta name="description" content="Detailed course curriculum, instructor info, requirements, and student reviews on EduSphere.">
+  <link rel="canonical" href="https://www.edusphere.example/course-details.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+  <div id="courseDetailRoot">
+    <section class="breadcrumb-bar">
+      <div class="container">
+        <span class="badge" id="courseCategoryBadge" style="background:rgba(255,255,255,0.18);color:#fff;">Category</span>
+        <h1 id="courseTitle" style="margin-top:0.6rem;">Loading course…</h1>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="courses.html">Courses</a> / <span id="breadcrumbTitle">Course</span></nav>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container course-detail-grid">
+        <div>
+          <img id="courseThumb" src="" alt="" style="border-radius:var(--radius-md);box-shadow:var(--shadow-md);width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:var(--space-md);" loading="lazy">
+
+          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:var(--space-md);">
+            <span class="badge" id="courseLevelBadge">Level</span>
+            <span id="courseRatingText" style="color:var(--color-accent);font-weight:600;"></span>
+          </div>
+
+          <p id="courseDescription" style="font-size:1.05rem;"></p>
+
+          <div class="tab-nav">
+            <button data-tab="tab-curriculum" class="active">Curriculum</button>
+            <button data-tab="tab-overview">What You'll Learn</button>
+            <button data-tab="tab-requirements">Requirements</button>
+            <button data-tab="tab-reviews">Reviews</button>
+          </div>
+
+          <div id="tab-curriculum" class="tab-panel active">
+            <h3>Course Curriculum</h3>
+            <div id="curriculumList"></div>
+          </div>
+
+          <div id="tab-overview" class="tab-panel">
+            <h3>What You'll Learn</h3>
+            <ul class="outcome-list" id="outcomesList"></ul>
+          </div>
+
+          <div id="tab-requirements" class="tab-panel">
+            <h3>Requirements</h3>
+            <ul class="outcome-list" id="requirementsList"></ul>
+          </div>
+
+          <div id="tab-reviews" class="tab-panel">
+            <h3>Student Reviews</h3>
+            <div id="reviewsList"></div>
+          </div>
+        </div>
+
+        <aside class="course-sidebar-card">
+          <div class="price-tag" id="priceTag">$0</div>
+          <button class="btn btn-primary btn-block" id="enrollBtn">Enroll Now</button>
+          <a href="contact.html" class="btn btn-ghost btn-block" style="margin-top:0.5rem;">Have a question?</a>
+          <ul class="sidebar-list" id="sidebarList" style="margin-top:var(--space-md);"></ul>
+          <div id="instructorCard" style="display:flex;align-items:center;gap:0.8rem;margin-top:var(--space-md);padding-top:var(--space-md);border-top:1px solid var(--color-border);"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--color-surface);">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Keep Exploring</span><h2>Related Courses</h2></div>
+        <div class="course-grid" id="relatedCourses"></div>
+      </div>
+    </section>
+  </div>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/courses.js"></script>
+  <script src="assets/js/forms.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

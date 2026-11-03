@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Courses | EduSphere</title>
+  <meta name="description" content="Search and filter hundreds of courses across web development, data science, AI, mathematics, and more on EduSphere.">
+  <link rel="canonical" href="https://www.edusphere.example/courses.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <style>
+    .courses-layout { display: grid; grid-template-columns: 260px 1fr; gap: var(--space-lg); align-items: start; }
+    .filter-sidebar { background: var(--color-surface); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); padding: var(--space-md); position: sticky; top: 100px; }
+    .filter-sidebar h4 { font-size: 0.95rem; margin-bottom: 0.7rem; }
+    .filter-group { margin-bottom: var(--space-md); }
+    .radio-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--color-text-muted); }
+    .radio-row input { accent-color: var(--color-primary); }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: var(--space-md); flex-wrap: wrap; }
+    .search-box { position: relative; flex: 1; max-width: 420px; }
+    .search-box input { width: 100%; padding: 0.75rem 1rem 0.75rem 2.6rem; border-radius: var(--radius-sm); border: 1.5px solid var(--color-border); }
+    .search-box i { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--color-text-muted); }
+    #categoryFilters { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: var(--space-md); }
+    @media (max-width: 1023px) {
+      .courses-layout { grid-template-columns: 1fr; }
+      .filter-sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="breadcrumb-bar">
+      <div class="container">
+        <h1>Browse Courses</h1>
+        <nav class="breadcrumb-trail" aria-label="Breadcrumb"><a href="index.html">Home</a> / <span>Courses</span></nav>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div id="categoryFilters" aria-label="Category filters"></div>
+
+        <div class="toolbar">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="courseSearch" placeholder="Search courses by title, topic, or tag...">
+          </div>
+          <div style="display:flex;align-items:center;gap:0.8rem;">
+            <span id="resultCount" style="font-size:0.85rem;color:var(--color-text-muted);white-space:nowrap;"></span>
+            <select id="sortSelect" class="form-control" style="width:auto;padding:0.6rem 1rem;">
+              <option value="popular">Most Popular</option>
+              <option value="rating">Highest Rated</option>
+              <option value="newest">Newest</option>
+              <option value="price-asc">Price: Low to High</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="courses-layout">
+          <aside class="filter-sidebar" aria-label="Filters">
+            <div class="filter-group">
+              <h4>Difficulty Level</h4>
+              <label class="radio-row"><input type="radio" name="levelFilter" value="All" checked> All Levels</label>
+              <label class="radio-row"><input type="radio" name="levelFilter" value="Beginner"> Beginner</label>
+              <label class="radio-row"><input type="radio" name="levelFilter" value="Intermediate"> Intermediate</label>
+              <label class="radio-row"><input type="radio" name="levelFilter" value="Advanced"> Advanced</label>
+            </div>
+            <div class="filter-group">
+              <h4>Price</h4>
+              <label class="radio-row"><input type="radio" name="priceFilter" value="All" checked> All</label>
+              <label class="radio-row"><input type="radio" name="priceFilter" value="Free"> Free</label>
+              <label class="radio-row"><input type="radio" name="priceFilter" value="Paid"> Paid</label>
+            </div>
+          </aside>
+
+          <div>
+            <div class="course-grid" id="courseGrid"></div>
+            <div class="load-more-wrap" id="loadMoreWrap">
+              <button class="btn btn-outline" id="loadMoreBtn">Load More Courses</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/courses.js"></script>
+  <script src="assets/js/forms.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

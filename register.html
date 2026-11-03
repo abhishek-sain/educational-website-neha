@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | EduSphere</title>
+  <meta name="description" content="Create a free EduSphere account to start learning today.">
+  <link rel="canonical" href="https://www.edusphere.example/register.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="auth-split">
+          <div class="auth-visual">
+            <i class="fa-solid fa-rocket" style="font-size:2.4rem;margin-bottom:1rem;"></i>
+            <h2>Start Learning Today</h2>
+            <p>Join 52,000+ learners building career-ready skills with EduSphere's courses and programs.</p>
+          </div>
+          <div class="auth-form-panel">
+            <h1 style="font-size:1.8rem;">Create Account</h1>
+            <div class="notice-banner">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>Demo only — registering here does not create a real account.</span>
+            </div>
+            <form id="registerForm" novalidate>
+              <div class="form-group">
+                <label for="registerName">Full Name *</label>
+                <input type="text" id="registerName" class="form-control" data-rule="name" required placeholder="Jane Doe">
+                <div class="field-error"></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="registerEmail">Email *</label>
+                  <input type="email" id="registerEmail" class="form-control" data-rule="email" required placeholder="you@example.com">
+                  <div class="field-error"></div>
+                </div>
+                <div class="form-group">
+                  <label for="registerPhone">Phone *</label>
+                  <input type="tel" id="registerPhone" class="form-control" data-rule="phone" required placeholder="+1 555 123 4567">
+                  <div class="field-error"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="registerPassword">Password *</label>
+                <div class="password-field">
+                  <input type="password" id="registerPassword" class="form-control" data-rule="password" required placeholder="At least 8 characters">
+                  <button type="button" class="password-toggle" data-target="registerPassword" aria-label="Toggle password visibility"><i class="fa-regular fa-eye"></i></button>
+                </div>
+                <div class="password-strength" id="passwordStrengthMeter"><span></span><span></span><span></span><span></span></div>
+                <p class="password-hint">Use 8+ characters with a mix of upper/lowercase, numbers, and symbols.</p>
+                <div class="field-error"></div>
+              </div>
+              <div class="form-group">
+                <label for="registerConfirmPassword">Confirm Password *</label>
+                <div class="password-field">
+                  <input type="password" id="registerConfirmPassword" class="form-control" data-rule="confirm-password" data-matches="registerPassword" required placeholder="Re-enter password">
+                  <button type="button" class="password-toggle" data-target="registerConfirmPassword" aria-label="Toggle password visibility"><i class="fa-regular fa-eye"></i></button>
+                </div>
+                <div class="field-error"></div>
+              </div>
+              <div class="form-group">
+                <label class="checkbox-row"><input type="checkbox" id="agreeTerms" data-rule="checkbox" required> I agree to the <a href="#" style="color:var(--color-primary);">Terms & Conditions</a></label>
+                <div class="field-error"></div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+              <p class="form-feedback" id="registerFormFeedback" style="color:var(--color-text-muted);"></p>
+            </form>
+            <p style="text-align:center;margin-top:var(--space-md);font-size:0.9rem;">Already have an account? <a href="login.html" style="color:var(--color-primary);font-weight:600;">Log In</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/forms.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>
