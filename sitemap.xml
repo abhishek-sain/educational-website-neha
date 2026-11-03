@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.edusphere.example/index.html</loc><priority>1.0</priority></url>
-  <url><loc>https://www.edusphere.example/about.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.edusphere.example/courses.html</loc><priority>0.9</priority></url>
-  <url><loc>https://www.edusphere.example/programs.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.edusphere.example/resources.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.edusphere.example/blog.html</loc><priority>0.7</priority></url>
-  <url><loc>https://www.edusphere.example/contact.html</loc><priority>0.6</priority></url>
-  <url><loc>https://www.edusphere.example/login.html</loc><priority>0.3</priority></url>
-  <url><loc>https://www.edusphere.example/register.html</loc><priority>0.3</priority></url>
+  <url><loc>https://www.rajasthanfacts.example/index.html</loc><priority>1.0</priority></url>
+  <url><loc>https://www.rajasthanfacts.example/rajasthan-gk.html</loc><priority>0.9</priority></url>
+  <url><loc>https://www.rajasthanfacts.example/districts.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.rajasthanfacts.example/quizzes.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.rajasthanfacts.example/mock-tests.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.rajasthanfacts.example/daily-gk.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.rajasthanfacts.example/previous-year-questions.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.rajasthanfacts.example/study-material.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.rajasthanfacts.example/blog.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.rajasthanfacts.example/about.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.rajasthanfacts.example/contact.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.rajasthanfacts.example/privacy-policy.html</loc><priority>0.3</priority></url>
+  <url><loc>https://www.rajasthanfacts.example/terms-and-conditions.html</loc><priority>0.3</priority></url>
+  <url><loc>https://www.rajasthanfacts.example/disclaimer.html</loc><priority>0.3</priority></url>
 </urlset>

@@ -1,0 +1,53 @@
+/* ==========================================================================
+   Rajasthan Facts — Long-form content pages (topic/district/blog details)
+   ========================================================================== */
+
+.content-header {
+  background: var(--color-bg-light);
+  border-bottom: 1px solid var(--color-border);
+  padding: 30px 0;
+}
+.content-layout { display: grid; grid-template-columns: 1fr 300px; gap: 36px; align-items: flex-start; }
+.content-body { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 36px; }
+.content-body h2 { margin-top: 1.6em; }
+.content-body h2:first-child { margin-top: 0; }
+.content-body h3 { margin-top: 1.3em; }
+.content-body ul, .content-body ol { padding-left: 22px; margin-bottom: 1em; }
+.content-body ul { list-style: disc; }
+.content-body ol { list-style: decimal; }
+.content-body li { margin-bottom: 6px; }
+.content-body blockquote {
+  border-left: 4px solid var(--color-accent); background: var(--color-bg-light);
+  padding: 14px 18px; border-radius: 8px; font-style: italic; color: var(--color-text-secondary);
+}
+.content-sidebar { display: flex; flex-direction: column; gap: 22px; position: sticky; top: calc(var(--header-height) + 16px); }
+.sidebar-box { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 20px; }
+.sidebar-box h4 { font-size: 0.92rem; margin-bottom: 12px; }
+.sidebar-box ul li { margin-bottom: 10px; font-size: 0.88rem; }
+.sidebar-box ul li a:hover { color: var(--color-primary); }
+
+.content-footer-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 30px; flex-wrap: wrap; }
+.content-footer-nav a {
+  flex: 1; min-width: 220px; border: 1px solid var(--color-border); border-radius: var(--radius-md);
+  padding: 16px 18px; display: block;
+}
+.content-footer-nav a:hover { border-color: var(--color-secondary); }
+.content-footer-nav .dir { font-size: 0.75rem; color: var(--color-text-secondary); margin-bottom: 4px; }
+.content-footer-nav .next-link { text-align: right; }
+
+.mcq-block { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 18px 20px; margin-bottom: 14px; }
+.mcq-block .mcq-q { font-weight: 600; margin-bottom: 10px; }
+.mcq-block .mcq-opts { display: grid; gap: 8px; }
+.mcq-block .mcq-opts button {
+  text-align: left; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--color-border);
+  background: var(--color-bg-light); font-family: inherit; font-size: 0.88rem;
+}
+.mcq-block .mcq-opts button.correct { background: rgba(22,163,74,0.12); border-color: var(--color-success); }
+.mcq-block .mcq-opts button.incorrect { background: rgba(220,38,38,0.12); border-color: var(--color-danger); }
+
+.source-ref { font-size: 0.8rem; color: var(--color-text-secondary); border-top: 1px solid var(--color-border); padding-top: 14px; margin-top: 24px; }
+
+@media (max-width: 900px) {
+  .content-layout { grid-template-columns: 1fr; }
+  .content-sidebar { position: static; }
+}

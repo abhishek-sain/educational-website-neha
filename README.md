@@ -1,94 +1,81 @@
-# EduSphere — Educational Website
+# Rajasthan Facts
 
-A complete, responsive, static educational website built with plain HTML5, CSS3, and vanilla JavaScript — no frameworks, no build step, no backend.
+राजस्थान सामान्य ज्ञान (GK), इतिहास, भूगोल, कला-संस्कृति, राजनीति, अर्थव्यवस्था व प्रतियोगी परीक्षा तैयारी (RAS, RPSC, RSSB/RSMSSB, Rajasthan Police, Patwari, Rajasthan CET, REET, LDC) के लिए एक पूर्णतः स्टैटिक शैक्षणिक वेबसाइट।
+
+## Tech stack
+
+HTML5 + CSS3 + vanilla JavaScript only — no frameworks, no backend, no database. All content lives in local JS data files under `assets/js/data/`.
 
 ## Running locally
 
-Because the site uses `fetch`-free vanilla JS and relative paths, you can open `index.html` directly in a browser, but for best results (and to avoid any browser file:// restrictions) serve it with any static file server:
+No build step is required. Any static file server works:
 
 ```bash
-# Python
-python3 -m http.server 8080
-
-# Node (if you have it)
-npx serve .
+cd education-website
+python3 -m http.server 8000
+# then open http://localhost:8000/index.html
 ```
 
-Then visit `http://localhost:8080`.
+Opening `index.html` directly via `file://` also works, since the site has no server-side dependencies.
 
-## Deploying
+## Hosting on Apache / Nginx
 
-Upload the contents of this folder as-is to any static host or web server (Apache, Nginx, Netlify, Vercel, GitHub Pages, S3, etc.). No server-side runtime is required.
+Copy the contents of this folder to your web root (e.g. `/var/www/html/`). No special server config is required beyond serving static files. A sample Nginx block:
+
+```nginx
+server {
+  listen 80;
+  server_name your-domain.example;
+  root /var/www/rajasthan-facts;
+  index index.html;
+  error_page 404 /404.html;
+}
+```
 
 ## Project structure
 
 ```
 education-website/
-├── index.html, about.html, courses.html, course-details.html,
-│   programs.html, resources.html, blog.html, blog-details.html,
-│   contact.html, login.html, register.html, 404.html
-├── assets/
-│   ├── css/   style.css (design system/base) · components.css (cards, forms, etc.)
-│   │          responsive.css (breakpoints) · animations.css (reveal/motion)
-│   ├── js/    data.js (all content datasets) · main.js (header/footer, nav, toasts,
-│   │          reveal, counters) · courses.js · blogs.js · forms.js · animations.js
-│   ├── images/ (logo, hero, courses, instructors, blogs, testimonials)
-│   └── downloads/sample-resources/ (demo downloadable files)
-├── robots.txt
-└── sitemap.xml
+├── index.html, rajasthan-gk.html, topic-details.html
+├── districts.html, district-details.html
+├── quizzes.html, quiz-details.html, quiz-result.html
+├── daily-gk.html
+├── mock-tests.html, mock-test-details.html
+├── previous-year-questions.html
+├── study-material.html, notes-details.html
+├── blog.html, blog-details.html
+├── search.html, contact.html, about.html
+├── privacy-policy.html, terms-and-conditions.html, disclaimer.html, 404.html
+├── robots.txt, sitemap.xml
+└── assets/
+    ├── css/ (style, components, content, quiz, animations, responsive)
+    ├── js/
+    │   ├── data/ (topics.js, districts.js, quizzes.js, blogs.js, resources.js, daily-gk.js)
+    │   ├── navigation.js, search.js, main.js, forms.js, animations.js
+    │   ├── topic-details.js, district-details.js, blogs.js, listings.js
+    │   └── quiz.js, mock-test.js, quiz-result.js
+    ├── images/ (logo, hero, forts, culture, districts, history, blogs, icons)
+    └── downloads/ (notes, current-affairs, sample-papers — demo placeholder PDFs)
 ```
 
 ## Adding content
 
-All site content lives in `assets/js/data.js` as plain JS arrays — no HTML editing required:
+- **New GK topic**: add an object to the `RF_TOPICS` array in `assets/js/data/topics.js` (id, category, title, intro, sections, facts, mcqs, related, lastUpdated, source). It automatically appears on `rajasthan-gk.html` and is reachable at `topic-details.html?id=<your-id>`.
+- **New district**: add an object to `RF_DISTRICTS` in `assets/js/data/districts.js`.
+- **New quiz / question**: edit `RF_QUIZZES` in `assets/js/data/quizzes.js`. New mock tests go in `RF_MOCK_TESTS`; previous-year-style practice questions go in `RF_PYQ`.
+- **New blog article**: add an object to `RF_BLOGS` in `assets/js/data/blogs.js`.
+- **New study resource**: add an object to `RF_RESOURCES` in `assets/js/data/resources.js` and drop the real file under `assets/downloads/`.
+- **New daily GK question**: append to `RF_DAILY_GK` in `assets/js/data/daily-gk.js` with a `date` field.
 
-- **Courses** — add an object to `courses`. Required fields: `id`, `title`, `category`,
-  `instructorId`, `level` (Beginner/Intermediate/Advanced), `duration`, `rating`, `reviews`,
-  `students`, `price`, `free`, `popular`, `newDate`, `thumb`, `description`, `tags`.
-- **Programs** — add to `programs` with `title`, `duration`, `level`, `image`, `description`,
-  `outcomes`.
-- **Blog posts** — add to `blogs` with `title`, `category`, `author`, `date`, `readTime`,
-  `thumb`, `excerpt`, and `content` (an HTML string; use `<h2>` tags for sections — they
-  automatically populate the table of contents).
-- **Study resources** — add to `resources` with `title`, `subject`, `type`, `size`,
-  `downloads`, `file` (path under `assets/downloads/`).
-- **Instructors / testimonials / FAQs** — add to their respective arrays following the
-  existing shape.
+All of the above datasets are also used to build the client-side search index in `assets/js/search.js` — nothing else needs to change for new entries to become searchable.
 
-Every listing, filter, and detail page reads from this file at runtime, so new entries
-appear automatically — no other file needs to change.
+## Important content notes
 
-## Customizing branding
-
-Colors, fonts, spacing, and radii are defined as CSS variables in
-`assets/css/style.css` under `:root`. Change them once and the whole site updates:
-
-```css
-:root {
-  --color-primary: #1E40AF;   /* Deep Blue */
-  --color-secondary: #38BDF8; /* Sky Blue */
-  --color-accent: #F59E0B;    /* Orange */
-  --font-heading: 'Poppins', 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
-}
-```
-
-Replace the logo text/icon in the `buildHeader()`/`buildFooter()` functions in
-`assets/js/main.js`, or swap in an image logo from `assets/images/logo/`.
-
-## Notes on demo behavior
-
-This is a static site with no backend or database:
-
-- The **contact**, **login**, and **register** forms validate input client-side and show a
-  simulated success/error state — nothing is sent to a server or stored anywhere real.
-- **Course/program enrollment** and **newsletter subscriptions** show a toast confirmation
-  but do not process real transactions or emails.
-- **Study resource downloads** point to small placeholder files under
-  `assets/downloads/sample-resources/` — swap in real PDFs for production use.
+- **District count**: Rajasthan's administrative district count/boundaries have changed more than once in recent years. This project uses the long-standing 33-district structure as a stable educational baseline and flags this explicitly on `districts.html`. Verify the current official count from the Rajasthan Revenue Department before using this for exam purposes.
+- **Quizzes / mock tests / previous-year questions**: all scoring happens entirely in the browser (`sessionStorage`), nothing is sent to or stored on a server. Sample/demo questions are explicitly labeled and are **not** official previous-year papers unless stated otherwise.
+- **Study material PDFs**: the files under `assets/downloads/` are minimal placeholder PDFs for demonstrating the download flow — replace them with verified real content before using this in production.
+- **Officeholders / current affairs**: names of current officeholders and current-affairs items change frequently and are intentionally not hardcoded as facts here — see `rajasthan-polity-overview` topic notes for guidance on where to verify the latest information.
 
 ## Browser support
 
-Built with modern, broadly-supported CSS/JS (CSS variables, `IntersectionObserver`,
-`clamp()`, grid). Tested against current Chrome, Firefox, Safari, and Edge. Respects
-`prefers-reduced-motion` for users who disable animations.
+Modern evergreen browsers (Chrome, Firefox, Safari, Edge). Uses `IntersectionObserver`, `sessionStorage`/`localStorage` (with try/catch fallbacks), and CSS custom properties.

@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Rajasthan Facts — Responsive Rules
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { max-width: 460px; margin: 0 auto; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .fact-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: repeat(3, 1fr); }
+  .content-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 860px) {
+  .main-nav { display: none; }
+  .menu-toggle { display: flex; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  .result-summary { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .fact-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .section { padding: 44px 0; }
+  .hero-inner { padding: 50px 16px 44px; }
+  .hero-stats { gap: 18px; }
+  .newsletter-box { flex-direction: column; text-align: center; padding: 30px 22px; }
+  .newsletter-form input { min-width: 0; width: 100%; }
+  .daily-gk-card { padding: 20px; }
+  .quiz-main { padding: 20px; }
+  .result-summary { grid-template-columns: 1fr 1fr; }
+}
